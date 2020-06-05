@@ -1,0 +1,22 @@
+.itemListContainer {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.itemContainer {
+    border-radius: 10px 0 0 10px;
+    margin: 5px 0;
+    padding: 8px 0;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.unselectedContent {
+    margin-left: 50px;
+}
+
+.selectedContainer img {
+    width: 20px;
+    margin: 0 15px;
+}

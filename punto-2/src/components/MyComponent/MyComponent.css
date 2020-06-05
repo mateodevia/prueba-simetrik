@@ -1,0 +1,55 @@
+.componentContainer {
+    height: 100vh;
+}
+
+.componentContainer h1 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 0px;
+}
+.column1 {
+    width: 50%;
+    height: 100%;
+}
+.column2 {
+    width: 50%;
+    height: 100%;
+    background-color: var(--grey);
+}
+
+.leftItemListContainer {
+    margin: 0 15px;
+    height: calc(100% - 150px);
+}
+
+.rightItemListContainer {
+    margin: 0 15px;
+    height: calc(50% - 135px);
+}
+
+.cancel {
+    margin: 15px;
+    padding: 0 20px;
+    height: 50px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    border: solid 0.5px grey;
+    font-weight: bold;
+    color: var(--blue);
+    background-color: white;
+}
+
+.ok {
+    margin: 15px;
+    padding: 0 20px;
+    height: 50px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    border: solid 1px grey;
+    margin-left: auto;
+    font-weight: bold;
+    color: white;
+    background-color: var(--blue);
+}
