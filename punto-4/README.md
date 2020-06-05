@@ -25,5 +25,20 @@ Una function es el tipo de función tradicional de JavaScript. Las cuales se pue
 
 Adicionalmente, las arrow functions ofrecen una sintaxis más simple que las funciones tradicionales, lo que hace que el código quede más limpio. La sintaxis de una arrow function es `() => {...}`. Sin embargo, esta se puede simplificar en algunos casos. Si solo tiene un parámetro, se puede eliminar los parentsis de la siguiente manera: `parametro => {...}`. Adicionalmente, si lo único que hace la función es retornar un valor, se puede eliminar los corchetes y la palabra return de la siguiente manera: `() => valorARetornar`.
 
-## ¿Que es Redux y cómo nos ayuda en los proyectos?
+## 5. ¿Que es Redux y cómo nos ayuda en los proyectos?
 Redux es otra librería de JavaScript que se usa muy frecuente en React. Redux permite mantener un estado global en las aplicaciones el cual se puede acceder desde cualquier parte de la aplicación. Esta librería es muy útil en proyectos de React ya que React usa un modelo de jerarquía en la cual la información se pasa entre componentes a través de los props. Adicionalmente cada componente puede tener su estado propio para manejar información internamente. Aunque este modelo es intuitivo y funciona para cualquier aplicación, puede ser difícil de mantener cuando las aplicaciones crecen y la cantidad de información que se pasa entre los componentes es muy grande. Con Redux toda la información que es necesaria en varios de los componentes de la aplicación se pueden guardar en el store para que los componentes puedan acceder a ella sin necesidad de que sus padres se la pasen por props. De esta forma el código queda más organizado y es mucho más mantenible. Es importante aclarar que Redux no remplaza por completo las props y el estado de React, ya que pueden existir ciertas variables o estado que solo se necesite dentro de un componente y no valga la pena agregarla al estado de Redux.
+
+## 6. ¿Que nos permite hacer la siguiente declaración?
+`const anyFunction = (param_1) => (param_2) => param_1 + param_2`
+
+Básicamente lo que tenemos aqui es una función que tiene un parametro param_1. Dicha función retorna otra función. La función retornada tiene un parametro param_2, y lo que hace la función es que retorna la suma de ambos parametros. Esto puede ser util si queremos definir param_1 en un momento dado, pero aun no conocemos param_2 y deseamos usar la función que los suma más adelante. En este caso podemos hacer lo siguiente:
+
+`let sumFunction = anyFunction(1)`
+
+y posteriormente cuando tengamos el valor del segundo parametro hacemos esto:
+
+`let response = sumFunction(2)`
+
+En este ejemplo response sería 3 ya que es el restltado de sumar 1 + 2.
+
+Es importante aclarar que sumFunction tenia acceso al valor 1, gracias al clousure de JavaScript. El clousure hace que en sumFunction no solo se guarde la función como tal, sino tambien todas las variables a las cuales tenía acceso esa funcion en el momento que se creo. Por esto cuando se ejecuta sumFunction se sabe que param_1 tenía el valor de 1 por mas que esa variable ya no exista. 
