@@ -55,6 +55,13 @@ function MyComponent(props) {
         setCompleteListRight(newList);
     };
 
+    const reorderSelected = (startIndex, endIndex) => {
+        const result = [...selectedItemsRight];
+        const [removed] = result.splice(startIndex, 1);
+        result.splice(endIndex, 0, removed);
+        setSelectedItemsRight(result);
+    };
+
     return (
         <div className='componentContainer flexbox'>
             <div className='column1'>
@@ -74,7 +81,10 @@ function MyComponent(props) {
             </div>
             <div className='column2'>
                 <h1>¿Cómo quieres ordenarlos?</h1>
-                <OrderedItemList />
+                <OrderedItemList
+                    items={selectedItemsRight}
+                    reorderSelected={reorderSelected}
+                />
                 <SearchBar
                     myRef={rightInputRef}
                     handleSearch={handleSearchRight}

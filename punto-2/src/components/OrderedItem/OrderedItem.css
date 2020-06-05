@@ -1,0 +1,14 @@
+.orderedItemContainer {
+    margin-left: 20px;
+    padding: 10px;
+}
+
+.orderedItemContainer div {
+    margin-right: auto;
+}
+
+.orderIcon {
+    height: 16px;
+    margin: auto 5px;
+    cursor: pointer;
+}

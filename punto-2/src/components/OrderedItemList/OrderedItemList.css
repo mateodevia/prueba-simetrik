@@ -1,3 +1,4 @@
 .orderedListContainer {
     height: calc(50vh - 80px);
+    overflow-y: scroll;
 }
