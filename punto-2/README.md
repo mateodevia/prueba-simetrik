@@ -6,4 +6,4 @@ Para ejecutar el proyecto de react donde se ilustra el funcionamiento del compon
 ### `npm install`
 ### `npm start`
 
-Esto abrir la aplicación en su navegador y estará corriendo en `http://localhost:3000`
+Esto abrirá la aplicación en su navegador y estará corriendo en `http://localhost:3000`
