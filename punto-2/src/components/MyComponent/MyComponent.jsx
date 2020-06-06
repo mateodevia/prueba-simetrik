@@ -70,19 +70,25 @@ function MyComponent(props) {
         setOrderedItems(newOrderedItems);
     };
 
-    const reorderSelected = (startIndex, endIndex) => {
+    let reorderSelected = (startIndex, endIndex) => {
         const result = [...orderedItems];
         const [removed] = result.splice(startIndex, 1);
         result.splice(endIndex, 0, removed);
         setOrderedItems(result);
     };
 
-    const handleOk = () => {
+    let handleOk = () => {
         console.log(
             'Elementos seleccionados en la izquierda:',
             selectedItemsLeft
         );
         console.log('Elementos seleccionados en la derecha:', orderedItems);
+    };
+
+    let handleCancel = () => {
+        setOrderedItems([]);
+        setSelectedItemsRight([]);
+        setSelectedItemsLeft([]);
     };
 
     return (
@@ -123,7 +129,9 @@ function MyComponent(props) {
                     />
                 </div>
                 <div className='flexbox'>
-                    <button className='cancel'>Cancelar</button>
+                    <button className='cancel' onClick={handleCancel}>
+                        Cancelar
+                    </button>
                     <button className='ok' onClick={handleOk}>
                         Ok
                     </button>

@@ -5,6 +5,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     --grey: rgb(240, 242, 255);
     --blue: rgb(57, 120, 255);
+    --light-grey: rgb(245, 245, 255);
 }
 
 code {

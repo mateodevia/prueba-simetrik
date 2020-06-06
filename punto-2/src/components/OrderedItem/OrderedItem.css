@@ -3,6 +3,10 @@
     padding: 10px;
 }
 
+.orderedItemContainer:hover {
+    background-color: var(--light-grey);
+}
+
 .dragableIcon {
     margin-right: auto;
 }

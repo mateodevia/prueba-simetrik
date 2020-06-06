@@ -12,6 +12,10 @@
     cursor: pointer;
 }
 
+.itemContainer:hover {
+    background-color: var(--light-grey);
+}
+
 .unselectedContent {
     margin-left: 50px;
 }
