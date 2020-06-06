@@ -11,6 +11,7 @@ function MyComponent(props) {
     let [completeListRight, setCompleteListRight] = useState(props.items);
     let [selectedItemsLeft, setSelectedItemsLeft] = useState([]);
     let [selectedItemsRight, setSelectedItemsRight] = useState([]);
+    let [orderedItems, setOrderedItems] = useState([]);
 
     let leftInputRef = useRef();
     let rightInputRef = useRef();
@@ -22,7 +23,7 @@ function MyComponent(props) {
     };
 
     let handleUnselectionLeft = (item) => {
-        let newSelectedItemsLeft = selectedItemsLeft.filter((i) => i != item);
+        let newSelectedItemsLeft = selectedItemsLeft.filter((i) => i !== item);
         setSelectedItemsLeft(newSelectedItemsLeft);
     };
 
@@ -30,11 +31,18 @@ function MyComponent(props) {
         let newSelectedItemsRight = [...selectedItemsRight];
         newSelectedItemsRight.push(item);
         setSelectedItemsRight(newSelectedItemsRight);
+        let newOrderedItems = [...orderedItems];
+        newOrderedItems.push({ name: item, ascendingOrder: true });
+        setOrderedItems(newOrderedItems);
     };
 
     let handleUnselectionRight = (item) => {
-        let newSelectedItemsRight = selectedItemsRight.filter((i) => i != item);
+        let newSelectedItemsRight = selectedItemsRight.filter(
+            (i) => i !== item
+        );
         setSelectedItemsRight(newSelectedItemsRight);
+        let newOrderedItems = orderedItems.filter((i) => i.name !== item);
+        setOrderedItems(newOrderedItems);
     };
 
     let handleSearchLeft = () => {
@@ -55,11 +63,26 @@ function MyComponent(props) {
         setCompleteListRight(newList);
     };
 
+    let handleSortingChange = (item, ascending) => {
+        let newOrderedItems = [...orderedItems];
+        let updated = newOrderedItems.find((i) => i === item);
+        updated.ascendingOrder = ascending;
+        setOrderedItems(newOrderedItems);
+    };
+
     const reorderSelected = (startIndex, endIndex) => {
-        const result = [...selectedItemsRight];
+        const result = [...orderedItems];
         const [removed] = result.splice(startIndex, 1);
         result.splice(endIndex, 0, removed);
-        setSelectedItemsRight(result);
+        setOrderedItems(result);
+    };
+
+    const handleOk = () => {
+        console.log(
+            'Elementos seleccionados en la izquierda:',
+            selectedItemsLeft
+        );
+        console.log('Elementos seleccionados en la derecha:', orderedItems);
     };
 
     return (
@@ -82,8 +105,9 @@ function MyComponent(props) {
             <div className='column2'>
                 <h1>¿Cómo quieres ordenarlos?</h1>
                 <OrderedItemList
-                    items={selectedItemsRight}
+                    items={orderedItems}
                     reorderSelected={reorderSelected}
+                    handleSortingChange={handleSortingChange}
                 />
                 <SearchBar
                     myRef={rightInputRef}
@@ -100,7 +124,9 @@ function MyComponent(props) {
                 </div>
                 <div className='flexbox'>
                     <button className='cancel'>Cancelar</button>
-                    <button className='ok'>Ok</button>
+                    <button className='ok' onClick={handleOk}>
+                        Ok
+                    </button>
                 </div>
             </div>
         </div>

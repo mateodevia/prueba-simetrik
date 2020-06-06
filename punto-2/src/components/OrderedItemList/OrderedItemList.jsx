@@ -21,8 +21,8 @@ function OrderedItemList(props) {
                     >
                         {props.items.map((item, index) => (
                             <Draggable
-                                key={item}
-                                draggableId={item}
+                                key={item.name}
+                                draggableId={item.name}
                                 index={index}
                             >
                                 {(provided, snapshot) => (
@@ -31,7 +31,12 @@ function OrderedItemList(props) {
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
                                     >
-                                        <OrderedItem item={item} />
+                                        <OrderedItem
+                                            item={item}
+                                            handleSortingChange={
+                                                props.handleSortingChange
+                                            }
+                                        />
                                     </div>
                                 )}
                             </Draggable>
