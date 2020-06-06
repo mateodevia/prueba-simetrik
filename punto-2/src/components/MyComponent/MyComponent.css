@@ -53,3 +53,13 @@
     color: white;
     background-color: var(--blue);
 }
+
+.okMessage {
+    background-color: var(--blue);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    right: 15px;
+    bottom: 80px;
+}

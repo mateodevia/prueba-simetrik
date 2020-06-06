@@ -12,6 +12,7 @@ function MyComponent(props) {
     let [selectedItemsLeft, setSelectedItemsLeft] = useState([]);
     let [selectedItemsRight, setSelectedItemsRight] = useState([]);
     let [orderedItems, setOrderedItems] = useState([]);
+    let [showingMessage, setShowingMessage] = useState(false);
 
     let leftInputRef = useRef();
     let rightInputRef = useRef();
@@ -83,6 +84,8 @@ function MyComponent(props) {
             selectedItemsLeft
         );
         console.log('Elementos seleccionados en la derecha:', orderedItems);
+        setShowingMessage(true);
+        setTimeout(() => setShowingMessage(false), 3000);
     };
 
     let handleCancel = () => {
@@ -132,6 +135,11 @@ function MyComponent(props) {
                     <button className='cancel' onClick={handleCancel}>
                         Cancelar
                     </button>
+                    {showingMessage && (
+                        <div className='okMessage'>
+                            EL resultado se imprimió en consola
+                        </div>
+                    )}
                     <button className='ok' onClick={handleOk}>
                         Ok
                     </button>
