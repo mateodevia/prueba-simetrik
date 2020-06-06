@@ -6,7 +6,7 @@ En primer lugar, porque no es necesario. Ambas son librerías de JavaScript que 
 
 En cuanto a desempeño, React está mejor optimizado que JQuery gracias a que mantiene en memoria una representación del DOM a la que se denomina el "Virtual DOM. Esto es mejor ya que el código que escribe el desarrollador modifica el Virtual DOM y no el DOM directamente. Cuando el Virtual DOM se modifica, React se encarga de ver qué cambió y solo actualizar en el DOM la parte que cambió. En contraste, JQuery permite que el desarrollador modifique directamente el DOM, lo que hace que la optimización dependa del desarrollador, lo cual difícilmente será mejor que la realizada por React. Adicionalmente, ambas librerías representan una carga adicional para la aplicación ya que son archivos que se tienen que cargar en la página, entonces tener ambas cargadas también deteriora el desempeño de la aplicación.
 
-Por último, es importante destacar que React sigue un paradigma de programación declarativo. Esto significa que el desarrollador escribe código que especifica qué se desea que pase con la interfaz gráfica y no entra muy en detalle de cómo esto debe suceder ya que esto se lo delega a la herramienta. Estadísticamente se ha mostrado que la programación declarativa disminuye la cantidad de bugs en el código, y lo vuelve más mantenible. Por esta razón, muchos los lenguajes modernos se han acercan cada vez más a la programación declarativa en vez de usar el paradigma imperativo.
+Por último, es importante destacar que React sigue un paradigma de programación declarativo. Esto significa que el desarrollador escribe código que especifica qué se desea que pase con la interfaz gráfica y no entra muy en detalle de cómo esto debe suceder ya que esto se lo delega a la herramienta. Estadísticamente se ha mostrado que la programación declarativa disminuye la cantidad de bugs en el código, y lo vuelve más mantenible. Por esta razón, muchos los lenguajes modernos se acercan cada vez más a la programación declarativa en vez de usar el paradigma imperativo.
 
 ## 2. ¿Porque usarias Hooks de las nuevas versiones de ReactJS, en lugar de class component?
 
@@ -31,7 +31,7 @@ Redux es otra librería de JavaScript que se usa muy frecuente en React. Redux p
 ## 6. ¿Que nos permite hacer la siguiente declaración?
 `const anyFunction = (param_1) => (param_2) => param_1 + param_2`
 
-Básicamente lo que tenemos aqui es una función que tiene un parametro param_1. Dicha función retorna otra función. La función retornada tiene un parametro param_2, y lo que hace la función es que retorna la suma de ambos parametros. Esto puede ser util si queremos definir param_1 en un momento dado, pero aun no conocemos param_2 y deseamos usar la función que los suma más adelante. En este caso podemos hacer lo siguiente:
+Básicamente lo que tenemos aqui es una función que recibe un parametro param_1. Dicha función retorna otra función. La función retornada tiene un parametro param_2, y lo que hace la función es que retorna la suma de ambos parametros. Esto puede ser util si queremos definir param_1 en un momento dado, pero aun no conocemos param_2 y deseamos usar la función que los suma más adelante. En este caso podemos hacer lo siguiente:
 
 `let sumFunction = anyFunction(1)`
 
